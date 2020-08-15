@@ -3,13 +3,12 @@ const api = {
     baseurl: "https://api.openweathermap.org/data/2.5/"
 }
 const searchbox = document.querySelector('.search-box');
-searchbox.addEventListener('keypress', setQuery);
+searchbox.addEventListener('click', setQuery);
 
-function setQuery(evt) {
-    if (evt.keyCode == 13) {
+function setQuery() {
       getResults(searchbox.value);
     }
-  }
+
 function getResults (query) {
     fetch(`${api.baseurl}weather?q=${query}&units=metric&APPID=${api.key}`)
       .then(weather => {
